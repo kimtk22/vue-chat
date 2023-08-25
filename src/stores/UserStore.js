@@ -1,7 +1,15 @@
 import { defineStore } from "pinia";
 import { googleTokenLogin } from "vue3-google-login";
 import axios from "axios";
-import { doc, getDoc, setDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  setDoc,
+  where,
+} from "firebase/firestore";
 import { db } from "../firebase/init";
 
 export const useUserStore = defineStore("user", {
@@ -39,6 +47,23 @@ export const useUserStore = defineStore("user", {
         }
       } catch (error) {
         console.log(error);
+      }
+    },
+
+    async login(email, password) {
+      const usersRef = collection(db, "users");
+      const q = query(
+        usersRef,
+        where("email", "==", email),
+        where("password", "==", password)
+      );
+
+      const querySnapshot = await getDocs(q);
+      if (!querySnapshot.empty) {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(doc.id, " => ", doc.data());
+        });
       }
     },
 

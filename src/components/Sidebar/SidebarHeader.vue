@@ -90,6 +90,8 @@ const { email, firstName, lastName } = storeToRefs(userStore);
 
 const logout = () => {
   userStore.logout();
-  router.push("/login");
+  setTimeout(() => {
+    router.push("/login");
+  }, 200);
 };
 </script>
