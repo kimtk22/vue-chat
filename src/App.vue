@@ -1,16 +1,19 @@
 <template>
   <RouterView />
-  <CreateChatModal />
+  <ModalTemplate />
 </template>
 
 <script setup>
-import CreateChatModal from "./components/CreateChatModal/CreateChatModal.vue";
+import ModalTemplate from "./components/Modal/ModalTemplate.vue";
 
 import { RouterView } from "vue-router";
 import { initFlowbite } from "flowbite";
 import { onMounted } from "vue";
 import { useChatRoomStore } from "./stores/ChatRoom";
+import { useModalStore } from "./stores/Modal";
 
-useChatRoomStore().onGetChatRooms();
-onMounted(() => {});
+// useChatRoomStore().onGetChatRooms();
+onMounted(() => {
+  useModalStore().init();
+});
 </script>

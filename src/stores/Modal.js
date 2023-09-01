@@ -4,33 +4,31 @@ import { useUserStore } from "./User";
 
 export const useModalStore = defineStore("modal", {
   state: () => ({
-    modals: {},
+    modal: null,
+    title: "",
+    body: {},
+    actions: [],
   }),
   actions: {
-    getCreateChatModal() {
-      const modalId = "createChatModal";
-
-      if (this.modals[modalId]) {
-        return this.modals[modalId];
-      }
-
-      const $targetEl = document.getElementById(modalId);
+    init() {
+      const $targetEl = document.getElementById("modalTemplate");
       const options = {
-        //   placement: "bottom-right",
         backdrop: "static",
-        //   backdropClasses:
-        //     "bg-gray-900 bg-opacity-50 dark:bg-opacity-80 fixed inset-0 z-40",
         closable: true,
-
-        onShow: async () => {
-          const userStore = useUserStore();
-          await userStore.getChatUsers();
-        },
       };
-      const modal = new Modal($targetEl, options);
-      this.modals[modalId] = modal;
-
-      return modal;
+      this.modal = new Modal($targetEl, options);
+    },
+    open(title = "Title", body, actions) {
+      this.modal?.show();
+      this.title = title;
+      this.body = body;
+      this.actions = actions;
+    },
+    close() {
+      this.modal?.hide();
+      this.title = "";
+      this.body = {};
+      this.actions = [];
     },
   },
 });

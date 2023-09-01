@@ -15,10 +15,19 @@
 <script setup>
 import PlusIcon from "icons/plus.vue";
 import { useModalStore } from "../../stores/Modal";
+import CreateChatBody from "../Modal/CreateChatBody.vue";
 
 const openModal = () => {
-  const createChatModal = useModalStore().getCreateChatModal();
-  createChatModal.show();
+  const actions = [
+    {
+      label: "Create",
+      type: "blue",
+    },
+    {
+      label: "Cancle",
+    },
+  ];
+  useModalStore().open("Create Chat", CreateChatBody, actions);
 };
 </script>
 
