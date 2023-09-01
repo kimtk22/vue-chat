@@ -29,7 +29,11 @@
   >
     <div class="h-full px-3 py-4 bg-gray-50">
       <SidebarHeader />
-      <div id="chatRooms" class="overflow-auto h-full">
+      <div id="chatRooms" class="overflow-auto h-[85%]">
+        <ChatRoom />
+        <ChatRoom />
+        <ChatRoom />
+        <ChatRoom />
         <ChatRoom />
         <ChatRoom />
         <ChatRoom />
@@ -47,12 +51,14 @@
         <ChatRoom />
         <ChatRoom />
       </div>
+      <SidebarFooter />
     </div>
   </aside>
 </template>
 
 <script setup>
 import SidebarHeader from "./SidebarHeader.vue";
+import SidebarFooter from "./SidebarFooter.vue";
 import ChatRoom from "./ChatRoom.vue";
 </script>
 

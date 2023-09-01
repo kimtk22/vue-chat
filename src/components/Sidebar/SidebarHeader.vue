@@ -80,16 +80,16 @@
 import MagnifyIcon from "icons/Magnify.vue";
 import AccountGroupIcon from "icons/AccountGroup.vue";
 import DotsVerticalIcon from "icons/DotsVertical.vue";
-import { useUserStore } from "../../stores/UserStore";
+import { useAccountStore } from "../../stores/Account";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 
-const userStore = useUserStore();
+const accountStore = useAccountStore();
 const router = useRouter();
-const { email, firstName, lastName } = storeToRefs(userStore);
+const { email, firstName, lastName } = storeToRefs(accountStore);
 
 const logout = () => {
-  userStore.logout();
+  accountStore.logout();
   setTimeout(() => {
     router.push("/login");
   }, 200);

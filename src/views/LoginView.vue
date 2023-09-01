@@ -112,9 +112,9 @@ import { ref, onMounted, onUnmounted } from "vue";
 import { RouterLink, useRouter } from "vue-router";
 import InputField from "../components/Utils/InputField.vue";
 import GoogleIcon from "icons/Google.vue";
-import { useUserStore } from "../stores/UserStore";
+import { useAccountStore } from "../stores/Account";
 
-const userStore = useUserStore();
+const accountStore = useAccountStore();
 const router = useRouter();
 
 const email = ref("");
@@ -124,8 +124,8 @@ const passwordError = ref(false);
 const loading = ref(false);
 
 const login = async () => {
-  await userStore.login(email.value, password.value);
-  if (userStore.id) {
+  await accountStore.login(email.value, password.value);
+  if (accountStore.id) {
     router.push("/");
   } else {
     alert("아이디와 비밀번호를 확인하세요.");
@@ -133,8 +133,8 @@ const login = async () => {
 };
 
 const googleLogin = async () => {
-  await userStore.googleLogin();
-  if (userStore.id) {
+  await accountStore.googleLogin();
+  if (accountStore.id) {
     router.push("/");
   }
 };

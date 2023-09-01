@@ -2,13 +2,13 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import LoginView from "../views/LoginView.vue";
 import SignupView from "../views/SignupView.vue";
-import { useUserStore } from "../stores/UserStore";
+import { useAccountStore } from "../stores/Account";
 
 const routes = [
   {
     path: "/",
     beforeEnter: (to, from, next) => {
-      if (useUserStore().id) {
+      if (useAccountStore().id) {
         next();
       } else {
         next("/login");
@@ -19,7 +19,7 @@ const routes = [
   {
     path: "/login",
     beforeEnter: (to, from, next) => {
-      if (useUserStore().id) {
+      if (useAccountStore().id) {
         next("/");
       } else {
         next();
