@@ -12,7 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase/init";
 
-export const useUserStore = defineStore("user", {
+export const useAccountStore = defineStore("user", {
   persist: true,
   state: () => ({
     id: "",
