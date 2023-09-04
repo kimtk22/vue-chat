@@ -1,10 +1,10 @@
 <template>
   <RouterView />
-  <ModalTemplate />
+  <Modal />
 </template>
 
 <script setup>
-import ModalTemplate from "./components/Modal/ModalTemplate.vue";
+import Modal from "./components/Modal/index.vue";
 
 import { RouterView } from "vue-router";
 import { initFlowbite } from "flowbite";

@@ -110,7 +110,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { RouterLink, useRouter } from "vue-router";
-import InputField from "../components/Utils/InputField.vue";
+import InputField from "../components/ui/InputField.vue";
 import GoogleIcon from "icons/Google.vue";
 import { useAccountStore } from "../stores/Account";
 

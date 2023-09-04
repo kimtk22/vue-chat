@@ -1,13 +1,13 @@
 <template>
   <Sidebar />
   <div class="sm:ml-80">
-    <ChatView />
+    <Chat />
   </div>
 </template>
 
 <script setup>
-import ChatView from "./ChatView.vue";
-import Sidebar from "../components/Sidebar/Sidebar.vue";
+import Chat from "@/components/Chat/index.vue";
+import Sidebar from "@/components/Sidebar/index.vue";
 import { onMounted, onUnmounted } from "vue";
 import { initFlowbite } from "flowbite";
 

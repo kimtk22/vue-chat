@@ -20,9 +20,9 @@
 </template>
 
 <script setup>
-import Message from "../components/ChatView/Message.vue";
-import ChatViewHeader from "../components/ChatView/ChatViewHeader.vue";
-import ChatViewFooter from "../components/ChatView/ChatViewFooter.vue";
+import Message from "./Message.vue";
+import ChatViewHeader from "./ChatViewHeader.vue";
+import ChatViewFooter from "./ChatViewFooter.vue";
 import { onMounted } from "vue";
 
 onMounted(() => {

@@ -69,7 +69,7 @@
 </template>
 
 <script setup>
-import InputField from "../components/Utils/InputField.vue";
+import InputField from "../components/ui/InputField.vue";
 
 import { ref } from "vue";
 

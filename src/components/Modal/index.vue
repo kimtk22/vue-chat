@@ -53,9 +53,7 @@
 </template>
 
 <script setup>
-import MagnifyIcon from "icons/Magnify.vue";
 import CloseIcon from "icons/Close.vue";
-import UserInfo from "./UserInfo.vue";
 import { useModalStore } from "../../stores/Modal";
 import { storeToRefs } from "pinia";
 
